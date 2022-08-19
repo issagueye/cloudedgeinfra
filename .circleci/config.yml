@@ -19,4 +19,8 @@ workflows:
             checkout: false 
         - terraform/plan:
             var: AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
-            out: plan.out
+            out: /tmp/plan.out
+        - terraform/apply:
+            var: AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY 
+        - terraform/destroy:
+            var: AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
